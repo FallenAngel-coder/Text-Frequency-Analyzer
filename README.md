@@ -8,15 +8,17 @@ The Frequency Analyzer is a program written in C that analyzes text files to ide
 - Macro DEBUG, to check work time
 - Low resource consumption
 
-How to install:
+## How to install:
 
    git clone https://github.com/FallenAngel-coder/Text-Frequency-Analyzer.git
    
    cd Text-Frequency-Analyzer
-   
-How to use:
-
+## Usage:
    gcc -o frequency_analyzer frequency_analyzer.c -lm
    
    ./frequency_analyzer
+
+   Input files: D:/file.txt; D:/banlist.txt
+   Output files: D:/result.txt; D:/result1.txt
 ## Methods
+
