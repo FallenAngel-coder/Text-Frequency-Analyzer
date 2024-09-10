@@ -19,6 +19,8 @@ The Frequency Analyzer is a program written in C that analyzes text files to ide
    ./frequency_analyzer
 
    Input files: D:/file.txt; D:/banlist.txt
+   
    Output files: D:/result.txt; D:/result1.txt
 ## Methods
-
+- GetText
+  Reads the contents of a file specified by the path into a dynamically allocated string and returns it.
