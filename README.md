@@ -19,3 +19,4 @@ How to use:
    gcc -o frequency_analyzer frequency_analyzer.c -lm
    
    ./frequency_analyzer
+## Methods
