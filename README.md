@@ -2,6 +2,11 @@
 
 The Frequency Analyzer is a program written in C that analyzes text files to identify word frequency patterns. 
 
+## Examples
+- Basic ban list example
+- Text example(~1600 words text about USA)
+- Result file
+
 ## Features
 - High efficiency 
 - Ban list of words can be used
