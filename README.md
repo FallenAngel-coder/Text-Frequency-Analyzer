@@ -22,6 +22,7 @@ The Frequency Analyzer is a program written in C that analyzes text files to ide
    gcc -o frequency_analyzer frequency_analyzer.c -lm
    
    ./frequency_analyzer inputFile.txt banlist.txt result.txt result1.txt
+   
    Where result - usage of all words and unique words in %, result1 - words with more than 10% usage
 ## Methods
 
