@@ -104,7 +104,6 @@ void BanList(char*** words, int** counts, int* size, const char* path, char*** n
 
     for (int i = 0; i < banSize; i++) {
         ClearText(banWords[i]);
-        printf(banWords[i]);
     }
 
     int capacity = 10;
@@ -302,12 +301,14 @@ void SaveResult(char** words, int* counts, int size, char** newWords, int* newCo
         printf("Error reading data from file: %s\n", path1);
 }
 
-int main() {
+int main(int argc, char* argv[]) {
 #ifdef DEBUG
     clock_t begin = clock();
-#endif // DEBUG
+#endif
 
-    char* data = GetText("D:/file.txt");
+    if (argc < 5) return 1;
+
+    char* data = GetText(argv[1]);
     if (!data) return 1;
 
     ClearText(data);
@@ -320,29 +321,34 @@ int main() {
     char** filteredWords;
     int* filteredCounts;
     int filteredSize;
-    BanList(&multWords, &multCounts, &multSize, "D:/banlist.txt", &filteredWords, &filteredCounts, &filteredSize);
+    BanList(&multWords, &multCounts, &multSize, argv[2], &filteredWords, &filteredCounts, &filteredSize);
 
     char** finalWords;
     int* finalCounts;
     int finalSize;
     ToMap(filteredWords, filteredCounts, filteredSize, &finalWords, &finalCounts, &finalSize);
-    SaveResult(multWords, multCounts, filteredSize, finalWords, finalCounts, finalSize, "D:/result.txt", "D:/result1.txt");
+
+    SaveResult(multWords, multCounts, filteredSize, finalWords, finalCounts, finalSize, argv[3], argv[4]);
+
     for (int i = 0; i < multSize; i++) free(multWords[i]);
     free(multWords);
     free(multCounts);
+
     for (int i = 0; i < filteredSize; i++) free(filteredWords[i]);
     free(filteredWords);
     free(filteredCounts);
+
     for (int i = 0; i < finalSize; i++) free(finalWords[i]);
     free(finalWords);
     free(finalCounts);
+
     free(data);
 
 #ifdef DEBUG
     clock_t end = clock();
     double elapsed_ms = (double)(end - begin) / CLOCKS_PER_SEC * 1000;
     printf("\nThe time: %.2f ms\n", elapsed_ms);
-#endif // DEBUG
+#endif
 
     return 0;
 }
